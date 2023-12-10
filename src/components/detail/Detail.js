@@ -11,6 +11,8 @@ import {
     faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -38,11 +40,15 @@ const Detail = () => {
             src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
         },
     ];
-
+    const navigate = useNavigate();
     const handleOpen = (i) => {
         setSlideNumber(i);
         setOpen(true);
     };
+    const handleorder = () => {
+        navigate("/order");
+    }
+
 
     const handleMove = (direction) => {
         let newSlideNumber;
@@ -84,7 +90,7 @@ const Detail = () => {
                     </div>
                 )}
                 <div className="hotelWrapper">
-                    <button className="bookNow">Đặt Ngay</button>
+                    <button className="bookNow" onClick={handleorder}>Đặt Ngay</button>
                     <h1 className="hotelTitle">Mercure Vung Tau</h1>
                     <div className="hotelAddress">
                         <FontAwesomeIcon icon={faLocationDot} />
@@ -123,7 +129,7 @@ const Detail = () => {
                             <h2>
                                 <b>12.000.000</b> (9 đêm)
                             </h2>
-                            <button>Đặt Ngay</button>
+                            <button onClick={handleorder}>Đặt Ngay</button>
                         </div>
                     </div>
                 </div>
